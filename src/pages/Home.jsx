@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import TrialBalance from "../components/TrialBalance";
 import IncomeStatement from "../components/IncomeStatement";
 import Balancesheet from "../components/Balancesheet";
+import Notes from "../components/Notes";
 
 import "../styles/common.css";
 
@@ -9,48 +10,7 @@ export default class Home extends Component {
   state = {
     items: localStorage.getItem("items")
       ? JSON.parse(localStorage.getItem("items"))
-      : [
-          {
-            name: "Building",
-            type: "ASSET",
-            amount: 2500,
-          },
-          {
-            name: "Elexity Bill",
-            type: "EXPENDITURE",
-            amount: 3000,
-          },
-          {
-            name: "Loan",
-            type: "LIABILITY",
-            amount: 500,
-          },
-          {
-            name: "Revenue",
-            type: "REVENUE",
-            amount: 12500,
-          },
-          {
-            name: "Capital",
-            type: "EQUITY",
-            amount: 5500,
-          },
-          {
-            name: "Telephone bill",
-            type: "EXPENDITURE",
-            amount: 500,
-          },
-          {
-            name: "Sales",
-            type: "REVENUE",
-            amount: 800,
-          },
-          {
-            name: "Lap top",
-            type: "ASSET",
-            amount: 2500,
-          },
-        ],
+      : [],
 
     itemName: "",
     amount: 0,
@@ -67,10 +27,16 @@ export default class Home extends Component {
     this.setState({ items: filterItems });
 
     localStorage.setItem("items", JSON.stringify(filterItems));
+
+    if (this.state.items.length === 1) {
+      localStorage.removeItem("items");
+    }
   };
 
   handleClearAll = () => {
     this.setState({ items: [] });
+
+    localStorage.removeItem("items");
   };
 
   handleChange = (e) => {
@@ -86,8 +52,8 @@ export default class Home extends Component {
     let amountError = "";
     let typeError = "";
 
-    if (!this.state.amount) {
-      amountError = "Amountr is required";
+    if (!this.state.amount || this.state.amount < 1) {
+      amountError = "Amount is invalid";
     }
 
     if (!this.state.itemName) {
@@ -124,11 +90,12 @@ export default class Home extends Component {
       this.setState({ items });
 
       localStorage.setItem("items", JSON.stringify(items));
+
+      document.getElementById("close-btn").click();
     }
   };
 
   handleUpdateModal = (id, name, amount, type) => {
-    console.log(id);
     this.setState({
       itemId: id,
       itemName: name,
@@ -140,13 +107,8 @@ export default class Home extends Component {
 
   handleEditItem = () => {
     if (this.validate()) {
-      console.log("hi");
       this.state.items.map((item, i) => {
-        console.log(i);
-        console.log(this.state.itemId);
         if (i === this.state.itemId) {
-          console.log("bye");
-          console.log(this.state.itemName);
           item.name = this.state.itemName;
           item.amount = parseInt(this.state.amount);
           item.type = this.state.type;
@@ -154,7 +116,6 @@ export default class Home extends Component {
       });
 
       localStorage.setItem("items", JSON.stringify(this.state.items));
-
       document.getElementById("close-btn").click();
     }
   };
@@ -173,7 +134,6 @@ export default class Home extends Component {
   };
 
   render() {
-    console.log(this.state.itemName);
     const revenues = this.state.items.filter((el) => el.type === "REVENUE");
     const expences = this.state.items.filter((el) => el.type === "EXPENDITURE");
     const assets = this.state.items.filter((el) => el.type === "ASSET");
@@ -201,9 +161,9 @@ export default class Home extends Component {
 
     return (
       <div className="container-fluid">
-        {/* <div className="row m-0"> */}
         <div className="cus-container">
-          {/* <div className=""> */}
+          <Notes />
+
           <TrialBalance
             items={this.state.items}
             totalRev={totalRev}
@@ -230,7 +190,10 @@ export default class Home extends Component {
           <div className="row m-0">
             <div className="pnl-col">
               <p className="report-heading">Income Statement</p>
-              <p className="report-desc">Which shows financial Performance</p>
+              <p className="report-desc">
+                Shows business profits and losses over a given certain period of
+                time.
+              </p>
 
               <IncomeStatement
                 revenues={revenues}
@@ -241,7 +204,10 @@ export default class Home extends Component {
             </div>
             <div className="balance-sheet-col">
               <p className="report-heading">Balancesheet</p>
-              <p className="report-desc">Which shows financial status</p>
+              <p className="report-desc">
+                Shows the assets, liabilities and equity at a given point in
+                time.
+              </p>
 
               <Balancesheet
                 assets={assets}
@@ -257,8 +223,6 @@ export default class Home extends Component {
           </div>
         </div>
       </div>
-      // {/* </div> */}
-      // </div>
     );
   }
 }

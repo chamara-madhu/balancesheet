@@ -20,7 +20,9 @@ export default class Balancesheet extends Component {
           <tr style={{ fontWeight: 500 }}>
             <td>Total Asset</td>
             <td></td>
-            <td>{this.props.totalAssets}</td>
+            <td className="border-top border-bottom">
+              {this.props.totalAssets}
+            </td>
           </tr>
           <tr>
             <td className="sec-heading-td">Equity</td>
@@ -35,13 +37,13 @@ export default class Balancesheet extends Component {
             </tr>
           ))}
           <tr>
-            <td>Net profit</td>
+            <td>Net Income</td>
             <td>{this.props.totalRev - this.props.totalExp}</td>
             <td></td>
           </tr>
           <tr style={{ fontWeight: 500 }}>
             <td>Total Equity</td>
-            <td></td>
+            <td className="border-top"></td>
             <td>
               {this.props.totalEqu + this.props.totalRev - this.props.totalExp}
             </td>
@@ -59,15 +61,15 @@ export default class Balancesheet extends Component {
             </tr>
           ))}
           <tr style={{ fontWeight: 500 }}>
-            <td>Total Liability</td>
-            <td></td>
+            <td>Total Liabilities</td>
+            <td className="border-top"></td>
             <td>{this.props.totalLib}</td>
           </tr>
 
           <tr style={{ fontWeight: 500 }}>
             <td>Total Equity and Liabilities</td>
             <td></td>
-            <td>
+            <td className="border-top">
               {this.props.totalLib +
                 this.props.totalEqu +
                 this.props.totalRev -
