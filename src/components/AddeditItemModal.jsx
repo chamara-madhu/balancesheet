@@ -85,33 +85,33 @@ export default class AddeditItemModal extends Component {
                 </div>
               </form>
             </div>
-            <div class="modal-footer">
+            {/* <div class="modal-footer"> */}
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+              onClick={this.props.handleModalClose}
+            >
+              Cancel
+            </button>
+            {this.props.isUpdate ? (
               <button
                 type="button"
-                class="btn btn-secondary"
-                data-dismiss="modal"
-                onClick={this.props.handleModalClose}
+                class="btn btn-primary"
+                onClick={this.props.handleEditItem}
               >
-                Cancel
+                Update
               </button>
-              {this.props.isUpdate ? (
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  onClick={this.props.handleEditItem}
-                >
-                  Update
-                </button>
-              ) : (
-                <button
-                  type="button"
-                  class="btn btn-primary"
-                  onClick={this.props.handleAddItem}
-                >
-                  Save
-                </button>
-              )}
-            </div>
+            ) : (
+              <button
+                type="button"
+                class="btn btn-primary"
+                onClick={this.props.handleAddItem}
+              >
+                Save
+              </button>
+            )}
+            {/* </div> */}
           </div>
         </div>
       </div>
