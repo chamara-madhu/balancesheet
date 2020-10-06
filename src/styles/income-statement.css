@@ -1,0 +1,27 @@
+.report-table {
+  border: 1px solid #ccc;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.report-table td {
+  border: 0;
+  padding: 2px 10px !important;
+}
+
+.report-table tr td:nth-child(1) {
+  width: calc(100% - 240px);
+}
+
+.report-table tr td:nth-child(2),
+.report-table tr td:nth-child(3) {
+  width: 120px;
+  text-align: right;
+  border-left: 1px solid #ccc;
+}
+
+.report-table .sec-heading-td {
+  font-weight: 500;
+  padding-top: 15px !important;
+  padding-bottom: 5px !important;
+}

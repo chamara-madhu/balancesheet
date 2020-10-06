@@ -1,0 +1,148 @@
+.trial-balance .heading {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 26px;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.trial-balance .heading-desc {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 16px;
+  color: #6b6b6b;
+  text-align: center;
+}
+
+.trial-balance table tr:nth-child(odd) {
+  background: #e8e8e8;
+}
+
+.trial-balance table tr:nth-child(even) {
+  background: #f2f2f2;
+}
+
+.table td {
+  border-top: 0;
+}
+
+.trial-balance table tr:nth-child(1) {
+  color: #fff;
+  background: #2c5b96;
+  font-weight: 500;
+}
+
+.trial-balance table tr td:nth-child(1) {
+  width: 50%;
+  border-right: 1px solid #fff;
+}
+.trial-balance table tr td:nth-child(2) {
+  width: calc((50% - 125px) / 2);
+  text-align: right;
+  border-right: 1px solid #fff;
+}
+.trial-balance table tr td:nth-child(3) {
+  width: calc((50% - 125px) / 2);
+  text-align: right;
+  border-right: 1px solid #fff;
+}
+.trial-balance table tr td:nth-child(4) {
+  width: 125px;
+  text-align: center;
+}
+.trial-balance table tr:last-child {
+  background: #e5f0f3;
+  font-weight: 500;
+}
+
+.trial-balance table .rev,
+.trial-balance table .exp,
+.trial-balance table .asset,
+.trial-balance table .equity,
+.trial-balance table .lib {
+  border-radius: 17px;
+  font-size: 11px;
+  line-height: 11px;
+  padding: 3px 8px;
+  color: #ffffff;
+  float: right;
+  margin-bottom: 0;
+}
+
+.trial-balance table .rev {
+  background: #0fab0b;
+}
+.trial-balance table .exp {
+  background: #fa2727;
+}
+.trial-balance table .asset {
+  background: #0c0292;
+}
+.trial-balance table .equity {
+  background: #dd6311;
+}
+.trial-balance table .lib {
+  background: #b60ea8;
+}
+
+.trial-balance table .fa-pencil-alt {
+  background: #2c5b96;
+  padding: 7px;
+  border-radius: 50%;
+  color: #fff;
+  margin-right: 15px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.trial-balance table .fa-pencil-alt:hover {
+  background: #17375e;
+}
+
+.trial-balance table .fa-trash-alt {
+  background: rgb(255, 74, 74);
+  padding: 7px 8px;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.trial-balance table .fa-trash-alt:hover {
+  background: rgb(248, 17, 17);
+}
+
+.add-item-btn {
+  font-size: 14px;
+  line-height: 16px;
+  color: #0d7b0a;
+  cursor: pointer;
+  margin-bottom: 0;
+}
+
+.clear-all-items {
+  font-size: 14px;
+  line-height: 16px;
+  color: #7a7a7a;
+  text-align: right;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.generate-btn {
+  display: block;
+  font-size: 18px;
+  line-height: 21px;
+  color: #ffffff;
+  background: #17375e;
+  border-radius: 5px;
+  padding: 10px 25px;
+  margin: auto;
+  border: 0;
+}
+
+.generate-btn:focus {
+  outline: 0;
+}
