@@ -127,7 +127,7 @@ export default class TrialBalance extends Component {
                                   fontSize: 14,
                                 }}
                               >
-                                Balancing
+                                Balanced
                               </span>
                             ) : (
                               <span
@@ -137,7 +137,7 @@ export default class TrialBalance extends Component {
                                   fontSize: 14,
                                 }}
                               >
-                                * Not Balancing
+                                * Not Balanced
                               </span>
                             )}
                           </td>

@@ -25,7 +25,7 @@ export default class IncomeStatement extends Component {
             <td className="border-top">{this.props.totalRev}</td>
           </tr>
           <tr>
-            <td className="sec-heading-td">Expences</td>
+            <td className="sec-heading-td">Expenses</td>
             <td></td>
             <td></td>
           </tr>
@@ -37,7 +37,7 @@ export default class IncomeStatement extends Component {
             </tr>
           ))}
           <tr style={{ fontWeight: 500 }}>
-            <td>Total Expences</td>
+            <td>Total Expenses</td>
             <td className="border-top"></td>
             <td>({this.props.totalExp})</td>
           </tr>

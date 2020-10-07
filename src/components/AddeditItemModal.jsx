@@ -89,7 +89,7 @@ export default class AddeditItemModal extends Component {
                         </option>
                         <option value="ASSET">Asset</option>
                         <option value="EQUITY">Equity</option>
-                        <option value="EXPENDITURE">Expence</option>
+                        <option value="EXPENDITURE">Expense</option>
                         <option value="LIABILITY">Liability</option>
                         <option value="REVENUE">Revenue</option>
                       </select>
